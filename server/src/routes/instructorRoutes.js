@@ -3,7 +3,7 @@ import {
     generatePreceptorCode,
     resetJoinCode,
     getStudents,
-} from '../controllers/instructorController.js';
+} from '../controllers/instructorController'
 import express from 'express';
 const router = express.Router();
 
