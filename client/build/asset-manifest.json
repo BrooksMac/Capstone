@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8a685450.css",
+    "main.js": "/static/js/main.7a08f835.js",
+    "static/media/sait-logo.png": "/static/media/sait-logo.123eb328a9fbef522334.png",
+    "index.html": "/index.html",
+    "main.8a685450.css.map": "/static/css/main.8a685450.css.map",
+    "main.7a08f835.js.map": "/static/js/main.7a08f835.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a685450.css",
+    "static/js/main.7a08f835.js"
+  ]
+}
