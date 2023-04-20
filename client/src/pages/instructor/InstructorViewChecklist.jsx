@@ -102,7 +102,7 @@ export const instructorSaveGradeAction = async ({ request, params }) => {
     const formData = await request.formData();
     const grade = { grade: formData.get('grade') };
 
-    await fetch(`https://papiris-api.onrender.com/api/weeks/instructor/${params.checklistID}`, {
+    await fetch(`http://papiris-api.onrender.com/api/weeks/instructor/${params.checklistID}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(grade),

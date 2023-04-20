@@ -16,7 +16,7 @@ export const useReset = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch(`https://papiris-api.onrender.com/api/auth/getCode/${id}`, {
+        const response = await fetch(`http://papiris-api.onrender.com/api/auth/getCode/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
@@ -41,7 +41,7 @@ export const useReset = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('https://papiris-api.onrender.com/api/auth/reset', {
+        const response = await fetch('http://papiris-api.onrender.com/api/auth/reset', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id, email, password, confirmPassword }),
@@ -60,7 +60,7 @@ export const useReset = () => {
     };
 
     const deleteCode = async (id) => {
-        const response = await fetch(`https://papiris-api.onrender.com/api/auth/deleteCode/${id}`, {
+        const response = await fetch(`http://papiris-api.onrender.com/api/auth/deleteCode/${id}`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),

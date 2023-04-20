@@ -12,7 +12,7 @@ export const useRequest = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('https://papiris-api.onrender.com/api/auth/request', {
+        const response = await fetch('http://papiris-api.onrender.com/api/auth/request', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email }),

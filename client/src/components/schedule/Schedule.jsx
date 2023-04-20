@@ -23,7 +23,7 @@ const Schedule = () => {
     useEffect(() => {
         async function fn() {
             const response = await fetch(
-                `https://papiris-api.onrender.com/api/schedules/student/${authenticatedUsersStudentEmail}`
+                `http://papiris-api.onrender.com/api/schedules/student/${authenticatedUsersStudentEmail}`
             );
             const json = await response.json();
             setIsSubmitted(json.is_sumbitted);
@@ -37,7 +37,7 @@ const Schedule = () => {
     async function handleSubmission(e) {
         e.preventDefault();
         const response = await fetch(
-            `https://papiris-api.onrender.com/api/schedules/student/submit/${authenticatedUsersStudentEmail}`,
+            `http://papiris-api.onrender.com/api/schedules/student/submit/${authenticatedUsersStudentEmail}`,
             { method: 'PUT' }
         );
         const json = await response.json();
