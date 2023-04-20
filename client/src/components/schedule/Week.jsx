@@ -31,7 +31,7 @@ const Week = ({ weekData, weekNumber, isSubmitted }) => {
         const token = auth.result.token
         const studentId = auth.result._id
 
-        fetch(`http://papiris-api.onrender.com/api/schedules/${authenticatedUsersStudentEmail}/${weekNumber}`, {
+        fetch(`https://papiris-api.onrender.com/api/schedules/${authenticatedUsersStudentEmail}/${weekNumber}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'Application/json' },
             body: JSON.stringify({

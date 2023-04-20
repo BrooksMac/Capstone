@@ -155,7 +155,7 @@ export const sendEmail = async (req, res, next) => {
             from: 'elhajj.refaat@gmail.com',
             to: email, // ###### Change to specific email for testing ######
             subject: 'Reset Password',
-            text: 'http://papiris-api.onrender.com/reset/' + resetCode._id,
+            text: 'https://papiris-api.onrender.com/reset/' + resetCode._id,
         });
         return res.status(200).json({ success: 'Please check your inbox.' });
     } catch (error) {

@@ -60,7 +60,7 @@ mongoose
     .then((connection) => {
         app.listen(process.env.PORT, () => {
             console.log('database connection successful!');
-            console.log(`listening @ http://papiris-api.onrender.com:${process.env.PORT}!`);
+            console.log(`listening @ https://papiris-api.onrender.com:${process.env.PORT}!`);
         });
         // Week.create(week1);
         // Week.create(week2);

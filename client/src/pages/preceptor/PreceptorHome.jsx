@@ -117,7 +117,7 @@ export default function PreceptorHome() {
 
     //delete eval handler
     async function handleDeleteEval(evalId) {
-        const response = await fetch(`http://papiris-api.onrender.com/api/preceptor/${evalId}`, {
+        const response = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evalId}`, {
             method: 'DELETE',
         });
 
@@ -129,9 +129,9 @@ export default function PreceptorHome() {
 export const evalsLoader = async () => {
     const user = JSON.parse(localStorage.getItem('auth')).result._id;
 
-    const evals = await fetch(`http://papiris-api.onrender.com/api/preceptor/home/${user}`);
+    const evals = await fetch(`https://papiris-api.onrender.com/api/preceptor/home/${user}`);
 
-    const checks = await fetch(`http://papiris-api.onrender.com/api/weeks/user/${user}`);
+    const checks = await fetch(`https://papiris-api.onrender.com/api/weeks/user/${user}`);
 
     const checklists = await checks.json();
 

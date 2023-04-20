@@ -30,7 +30,7 @@ export default function ViewAllChecklists() {
 export const viewAllChecklistsLoader = async ({ params }) => {
     //Get the currently logged in user's ID and the list of their checklists
     const auth = JSON.parse(localStorage.getItem('auth')).result;
-    const checklistRes = await fetch(`http://papiris-api.onrender.com/api/weeks/user/${auth._id}`);
+    const checklistRes = await fetch(`https://papiris-api.onrender.com/api/weeks/user/${auth._id}`);
 
     if (!checklistRes.ok) {
         console.log('Error getting that users checklists');

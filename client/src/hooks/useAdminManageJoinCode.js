@@ -10,7 +10,7 @@ export const useAdminManageJoinCode = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('http://papiris-api.onrender.com/api/admin/code/instructor', {
+        const response = await fetch('https://papiris-api.onrender.com/api/admin/code/instructor', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
         });
@@ -33,7 +33,7 @@ export const useAdminManageJoinCode = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('http://papiris-api.onrender.com/api/admin/code/reset', {
+        const response = await fetch('https://papiris-api.onrender.com/api/admin/code/reset', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code }),

@@ -110,7 +110,7 @@ export default function PreceptorEvaluate() {
 //preliminary loader
 export const viewEvaluationLoader = async ({ params }) => {
     const evaluationId = params.evaluationID;
-    const res = await fetch(`http://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
     return res;
 };
 
@@ -123,7 +123,7 @@ export const editEvaluationAction = async ({ request }) => {
     console.log(evaluationId);
 
     //grab the master evaluation
-    const res = await fetch(`http://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
     const newEval = await res.json();
 
     newEval.comments = data.get('comments');
@@ -133,7 +133,7 @@ export const editEvaluationAction = async ({ request }) => {
         evals.skill_rating = data.get(evals.skill_name + 'rating');
     });
 
-    await fetch(`http://papiris-api.onrender.com/api/preceptor/${evaluationId}`, {
+    await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`, {
         method: 'PUT',
         body: JSON.stringify(newEval),
         headers: { 'Content-Type': 'application/json' },

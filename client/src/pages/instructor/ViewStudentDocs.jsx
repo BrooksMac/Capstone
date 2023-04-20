@@ -140,10 +140,10 @@ export const studentDocsLoader = async (req) => {
     const studentId = req.params.studentID;
 
     const evals = await fetch(
-        `http://papiris-api.onrender.com/api/preceptor/studentEvals/${studentId}`
+        `https://papiris-api.onrender.com/api/preceptor/studentEvals/${studentId}`
     );
 
-    const checks = await fetch(`http://papiris-api.onrender.com/api/weeks/user/${studentId}`);
+    const checks = await fetch(`https://papiris-api.onrender.com/api/weeks/user/${studentId}`);
 
     const checklists = await checks.json();
     const evaluations = await evals.json();
