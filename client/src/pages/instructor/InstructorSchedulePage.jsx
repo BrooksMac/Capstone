@@ -22,7 +22,7 @@ const InstructorSchedulePage = () => {
     async function handleSearch(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/${studentIDState}`
+            `https://papiris-api.onrender.com/api/schedules/student/${studentIDState}`
         );
         setWeekData(await response.json());
         console.log(weekData);

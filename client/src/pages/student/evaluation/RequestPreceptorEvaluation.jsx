@@ -61,7 +61,7 @@ export default function RequestPreceptorEvaluation() {
 }
 
 export const preceptorListLoader = async () => {
-    const users = await fetch('http://localhost:42069/api/users/preceptors');
+    const users = await fetch('https://papiris-api.onrender.com/api/users/preceptors');
     const usersList = await users.json();
     return usersList;
 };
@@ -72,7 +72,7 @@ export const evaluationRequestAction = async ({ request }) => {
     //grab the form data
     const data = await request.formData();
     //grab the master evaluation
-    const res = await fetch('http://localhost:42069/api/preceptor/eval');
+    const res = await fetch('https://papiris-api.onrender.com/api/preceptor/eval');
     const newEval = await res.json();
 
     const month = parseInt(data.get('month'));
@@ -87,7 +87,7 @@ export const evaluationRequestAction = async ({ request }) => {
     newEval.student_id = user;
     newEval.instructor_id = JSON.parse(localStorage.getItem('auth')).result.instructorId;
 
-    const response = await fetch('http://localhost:42069/api/preceptor/eval', {
+    const response = await fetch('https://papiris-api.onrender.com/api/preceptor/eval', {
         method: 'POST',
         body: JSON.stringify(newEval),
         headers: { 'Content-Type': 'application/json' },

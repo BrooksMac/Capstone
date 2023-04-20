@@ -97,6 +97,6 @@ export default function InstructorViewPeval() {
 //preliminary loader
 export const instructorEvaluationLoader = async ({ params }) => {
     const evaluationId = params.evaluationID;
-    const res = await fetch(`http://localhost:42069/api/preceptor/${evaluationId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
     return res;
 };

@@ -139,7 +139,7 @@ export default function InstructorHome() {
 export const instructorHomeLoader = async () => {
     const userId = JSON.parse(localStorage.getItem('auth')).result._id;
 
-    const res = await fetch(`http://localhost:42069/api/instructor/${userId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/instructor/${userId}`);
     const students = await res.json();
     console.log(students);
     return students;

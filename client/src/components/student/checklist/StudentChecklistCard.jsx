@@ -38,7 +38,7 @@ export default function StudentChecklistCard({ checklist }) {
         setSubmitDisabled(true);
 
         const res = await fetch(
-            `http://localhost:42069/api/weeks/submit/${checklist._id}`,
+            `https://papiris-api.onrender.com/api/weeks/submit/${checklist._id}`,
             {
                 method: 'PATCH',
             }
