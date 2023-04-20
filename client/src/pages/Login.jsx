@@ -12,6 +12,7 @@ import {
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import logo from '../img/sait-logo.png';
+import LoginInfoPopUp from '../components/LoginInfoPopUp'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -101,6 +102,9 @@ const Login = () => {
                 </Stack>
                 {error && <Alert severity="error">{error}</Alert>}
             </form>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <LoginInfoPopUp setEmail={setEmail} setPassword={setPassword}/>
+            </div>
         </Container>
     );
 };
