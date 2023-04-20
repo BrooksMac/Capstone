@@ -15,6 +15,7 @@ import {
 import { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import bigsaitlogo from '../../img/bigsaitlogo.png';
 
 export default function InstructorHome() {
     const userId = JSON.parse(localStorage.getItem('auth')).result._id;
@@ -44,7 +45,7 @@ export default function InstructorHome() {
                         Students
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <Grid container spacing={1}>
                         {students ? (students.map((student, idx) => (
                             <Grid item key={idx} sx={{ minWidth: 275 }}>
@@ -118,7 +119,7 @@ export default function InstructorHome() {
                         Account Management
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <br />
                     <br />
                     {/* <Typography variant="h6">

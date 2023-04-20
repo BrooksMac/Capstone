@@ -18,6 +18,7 @@ import { Form, redirect, useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import StudentChecklistAccordion from '../../../components/student/checklist/StudentChecklistAccordion';
+import bigsaitlogo from '../../../img/bigsaitlogo.png'
 
 export default function ViewChecklist() {
     //Grabs the data from the backend using the loader function
@@ -52,7 +53,7 @@ export default function ViewChecklist() {
                         >
                             <Typography>{section.name}</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                             <StudentChecklistAccordion section={section} />
                         </AccordionDetails>
                     </Accordion>

@@ -16,6 +16,7 @@ import { Form, redirect, useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PreceptorChecklistAccordion from '../../../components/preceptor/checklist/PreceptorChecklistAccordion';
+import bigsaitlogo from '../../../img/bigsaitlogo.png'
 
 export default function PreceptorViewChecklist() {
     const { checklistData } = useLoaderData();
@@ -56,7 +57,7 @@ export default function PreceptorViewChecklist() {
                         >
                             <Typography>{section.name}</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                             <PreceptorChecklistAccordion section={section} />
                         </AccordionDetails>
                     </Accordion>

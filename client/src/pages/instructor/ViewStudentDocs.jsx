@@ -10,6 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InstructorChecklistCard from '../../components/instructor/checklist/InstructorChecklistCard';
+import bigsaitlogo from '../../img/bigsaitlogo.png';
 
 export default function ViewStudentDocs() {
     //for use with the accordian
@@ -44,7 +45,7 @@ export default function ViewStudentDocs() {
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography variant="h5" sx={{ fontWeight: 'bold' }}>Evaluations</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <Grid container spacing={1}>
                         {evaluations.length > 0 ? (
                             evaluations.map((evaluation, idx) => (
@@ -109,7 +110,7 @@ export default function ViewStudentDocs() {
                         Checklists
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <Grid container spacing={2}>
                         {checklists.length > 0 ? (
                             checklists
