@@ -62,7 +62,7 @@ export default function PreceptorViewChecklist() {
                         </AccordionDetails>
                     </Accordion>
                 ))}
-                <Stack direction="row" spacing={1} alignContent="center">
+                <Stack sx={{marginLeft: 1, marginTop: 1}} direction="row" spacing={1} alignContent="center">
                     <Button
                         variant="contained"
                         color="primary"
@@ -93,7 +93,7 @@ export default function PreceptorViewChecklist() {
 
 export const preceptorSaveChecklistAction = async ({ request, params }) => {
     const formData = await request.formData();
-    const res = await fetch(`https://papiris-api.onrender.com/api/weeks/${params.checklistID}`);
+    const res = await fetch(`http://localhost:42069/api/weeks/${params.checklistID}`);
     const loaderData = await res.json();
 
     const resData = [];
@@ -117,7 +117,7 @@ export const preceptorSaveChecklistAction = async ({ request, params }) => {
     });
 
     //Send the update to the database
-    await fetch(`https://papiris-api.onrender.com/api/weeks/preceptor/${params.checklistID}`, {
+    await fetch(`http://localhost:42069/api/weeks/preceptor/${params.checklistID}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(resData),

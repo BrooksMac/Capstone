@@ -21,7 +21,7 @@ export default function InstructorViewPeval() {
     };
 
     return (
-        <Grid>
+        <Grid sx={{ marginX: 15, justifyContent: 'center', mt: 3, bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
             <input hidden name="evaluationId" value={instantiatedEval._id}></input>
             <Typography variant="h4">
                 Evaluation for {instantiatedEval.student_id.firstName}{' '}
@@ -89,6 +89,7 @@ export default function InstructorViewPeval() {
                 value={value}
                 onChange={handleInputChange}
                 placeholder="Place comments here..."
+                sx={{backgroundColor: 'rgba(255, 255, 255, .5)'}}
             />
         </Grid>
     );
@@ -97,6 +98,6 @@ export default function InstructorViewPeval() {
 //preliminary loader
 export const instructorEvaluationLoader = async ({ params }) => {
     const evaluationId = params.evaluationID;
-    const res = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
+    const res = await fetch(`http://localhost:42069/api/preceptor/${evaluationId}`);
     return res;
 };

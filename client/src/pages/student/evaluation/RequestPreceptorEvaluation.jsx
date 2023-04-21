@@ -7,7 +7,8 @@ import {
     Button,
     TextField,
     Container,
-    Typography
+    Typography,
+    Box
 } from '@mui/material';
 
 import { useLoaderData, useActionData, redirect, Form } from 'react-router-dom';
@@ -23,7 +24,7 @@ export default function RequestPreceptorEvaluation() {
             <Typography variant="h4">
                 Request an evaluation from your preceptor
             </Typography>
-            <Container>
+            <Box sx={{  marginX: 10, paddingX: 4, justifyContent: 'center', mt: 0, bgcolor: 'rgba(255, 255, 255, 0.5)', borderRadius: 4}}>
                 <InputLabel id="demo-simple-select-label">
                     First or last evaluation?
                 </InputLabel>
@@ -55,13 +56,13 @@ export default function RequestPreceptorEvaluation() {
                         Submit
                     </Button>
                 </Container>
-            </Container>
+            </Box>
         </Form>
     );
 }
 
 export const preceptorListLoader = async () => {
-    const users = await fetch('https://papiris-api.onrender.com/api/users/preceptors');
+    const users = await fetch('http://localhost:42069/api/users/preceptors');
     const usersList = await users.json();
     return usersList;
 };
@@ -72,7 +73,7 @@ export const evaluationRequestAction = async ({ request }) => {
     //grab the form data
     const data = await request.formData();
     //grab the master evaluation
-    const res = await fetch('https://papiris-api.onrender.com/api/preceptor/eval');
+    const res = await fetch('http://localhost:42069/api/preceptor/eval');
     const newEval = await res.json();
 
     const month = parseInt(data.get('month'));
@@ -87,7 +88,7 @@ export const evaluationRequestAction = async ({ request }) => {
     newEval.student_id = user;
     newEval.instructor_id = JSON.parse(localStorage.getItem('auth')).result.instructorId;
 
-    const response = await fetch('https://papiris-api.onrender.com/api/preceptor/eval', {
+    const response = await fetch('http://localhost:42069/api/preceptor/eval', {
         method: 'POST',
         body: JSON.stringify(newEval),
         headers: { 'Content-Type': 'application/json' },

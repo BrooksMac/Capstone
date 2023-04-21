@@ -11,6 +11,7 @@ import {
     TableRow,
     TableCell,
     TableBody,
+    Box
 } from '@mui/material';
 import { useLoaderData } from 'react-router-dom';
 
@@ -43,6 +44,7 @@ const ManageJoinCode = () => {
             {message && <Alert severity="success">{message}</Alert>}
             {error && <Alert severity="error">{error}</Alert>}
             <br />
+            <Box sx={{padding: 2, marginX: 15, justifyContent: 'center', bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -81,7 +83,7 @@ const ManageJoinCode = () => {
             </Stack>
             <br />
             <br />
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
                 <form className="reset_join_code" onSubmit={handleResetJoinCode}>
                     <Stack direction="row" spacing={2}>
                         <TextField
@@ -96,6 +98,7 @@ const ManageJoinCode = () => {
                     </Stack>
                 </form>
             </Stack>
+            </Box>
         </>
     );
 };
@@ -105,7 +108,7 @@ export default ManageJoinCode;
 export const joinCodeLoader = async () => {
     const userID = JSON.parse(localStorage.getItem('auth')).result._id;
     console.log(userID);
-    const joinCodes = await fetch(`https://papiris-api.onrender.com/api/auth/joins/codes/${userID}`);
+    const joinCodes = await fetch(`http://localhost:42069/api/auth/joins/codes/${userID}`);
 
     if (!joinCodes.ok) {
         console.log('There was an error getting the list of join codes.');

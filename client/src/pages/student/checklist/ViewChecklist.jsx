@@ -34,7 +34,8 @@ export default function ViewChecklist() {
     const [open, setOpen] = useState(false);
 
     return (
-        <Box p={2}>
+        
+        <Box p={2} sx={{ marginX: 15, justifyContent: 'center', bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
             <Typography variant="h4">
                 {checklistData.week.name} Skills Assessment
             </Typography>
@@ -94,7 +95,7 @@ export default function ViewChecklist() {
                         accurate and true.
                     </Typography>
                 </Stack>
-                <Dialog open={open} onClose={() => setOpen(false)}>
+                <Dialog open={open} onClose={() => setOpen(false)} >
                     <DialogTitle>Save the form?</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
@@ -117,9 +118,9 @@ export default function ViewChecklist() {
 export const checklistLoader = async ({ params }) => {
     //Get the user's checklists and a list of all preceptors from the database
     const checklistRes = await fetch(
-        `https://papiris-api.onrender.com/api/weeks/${params.checklistID}`
+        `http://localhost:42069/api/weeks/${params.checklistID}`
     );
-    const preceptorRes = await fetch(`https://papiris-api.onrender.com/api/users/preceptors`);
+    const preceptorRes = await fetch(`http://localhost:42069/api/users/preceptors`);
 
     if (!checklistRes.ok) {
         console.log('There was an error retreiving that checklist');
@@ -141,7 +142,7 @@ export const checklistLoader = async ({ params }) => {
 export const saveChecklistAction = async ({ request, params }) => {
     //Get the submitted from data and the checklist that is being updated from the database
     const formData = await request.formData();
-    const res = await fetch(`https://papiris-api.onrender.com/api/weeks/${params.checklistID}`);
+    const res = await fetch(`http://localhost:42069/api/weeks/${params.checklistID}`);
     const loaderData = await res.json();
 
     //Get the selected preceptor's ID
@@ -174,7 +175,7 @@ export const saveChecklistAction = async ({ request, params }) => {
     });
 
     //Send the update to the database
-    await fetch(`https://papiris-api.onrender.com/api/weeks/${params.checklistID}`, {
+    await fetch(`http://localhost:42069/api/weeks/${params.checklistID}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(resData),
