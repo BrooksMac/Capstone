@@ -53,7 +53,7 @@ const Login = () => {
      * Clicking the button fires the onSubmit function on the form.
      */
     return (
-        <Container maxWidth="sm" sx={{ padding: '30px' }}>
+        <Container maxWidth="sm" sx={{ padding: '30px', bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
             <Stack
                 direction="row"
                 spacing={2}

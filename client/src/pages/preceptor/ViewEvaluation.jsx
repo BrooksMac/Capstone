@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { MenuItem, Button, TextField } from '@mui/material';
+import { MenuItem, Button, TextField, Box } from '@mui/material';
 
 import { useLoaderData, useActionData, redirect, Form } from 'react-router-dom';
 
@@ -24,6 +24,7 @@ export default function PreceptorEvaluate() {
     const data = useActionData();
 
     return (
+        <Box sx={{bgcolor: 'rgba(255, 255, 255, 0.8)'}}>
         <Form method="post">
             <input hidden name="evaluationId" value={instantiatedEval._id}></input>
 
@@ -104,6 +105,7 @@ export default function PreceptorEvaluate() {
             </Button>
             </div>
         </Form>
+        </Box>
     );
 }
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography, IconButton } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography, IconButton, Alert } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 
 export default function LoginInfoPopUp({setEmail, setPassword}) {
@@ -28,6 +28,7 @@ export default function LoginInfoPopUp({setEmail, setPassword}) {
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle align='center'>Welcome to Competency Tracking Tool.  This app was developed for the SAIT Optician Program to aid students, preceptors, and instructors with managing the plethora of documents necessary to complete a practicum.</DialogTitle>
+        
         <Typography paddingX={5} variant='h6'>Please select a user to get started:</Typography>
         <DialogActions style={{ justifyContent: 'center', display: 'flex' }}>
           <IconButton size='large' onClick={() => handleFillFields("student@gmail.com")} color="primary">

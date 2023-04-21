@@ -66,7 +66,7 @@ const InstructorSchedulePage = () => {
             </Box>
 
             {!weekData && (
-                <Typography align="center" color="red">
+                <Typography align="center" color="black">
                     Please Enter A Valid Student Email To View A Schedule...
                 </Typography>
             )}

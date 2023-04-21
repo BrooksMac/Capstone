@@ -49,7 +49,7 @@ const Schedule = () => {
     //
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10 }}>
+            <Box sx={{ display: 'flex', marginX: 15, justifyContent: 'center', mt: 10, bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
                 <Box>
                     {weeks &&
                         weeks.map((weekData, index) => (
