@@ -31,7 +31,7 @@ export default function LoginInfoPopUp({setEmail, setPassword}) {
         
         <Typography paddingX={5} variant='h6'>Please select a user to get started:</Typography>
         <DialogActions style={{ justifyContent: 'center', display: 'flex' }}>
-          <IconButton size='large' onClick={() => handleFillFields("student@gmail.com")} color="primary">
+          <IconButton size='large' onClick={() => handleFillFields("student@email.com")} color="primary">
             Student
             <PersonIcon style={{fontSize: 40}}/>
           </IconButton >
@@ -39,7 +39,7 @@ export default function LoginInfoPopUp({setEmail, setPassword}) {
             Preceptor
             <PersonIcon style={{fontSize: 40}}/>
           </IconButton>
-          <IconButton size='large' onClick={() => handleFillFields("brooks@sait.ca")} color="success">
+          <IconButton size='large' onClick={() => handleFillFields("instructor@gmail.com")} color="success">
             Instructor
             <PersonIcon style={{fontSize: 40}}/>
           </IconButton>
