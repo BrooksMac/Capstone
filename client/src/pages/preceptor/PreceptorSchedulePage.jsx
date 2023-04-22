@@ -27,7 +27,7 @@ const InstructorSchedulePage = () => {
     async function handleSearch(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/${studentIDState}`
+            `https://papiris-api.onrender.com/api/schedules/student/${studentIDState}`
         );
         setWeekData(await response.json());
     }
@@ -36,7 +36,7 @@ const InstructorSchedulePage = () => {
     async function handleApprove(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/approve/${studentIDState}`,
+            `https://papiris-api.onrender.com/api/schedules/student/approve/${studentIDState}`,
             { method: 'PUT' }
         );
         const json = await response.json();
@@ -47,7 +47,7 @@ const InstructorSchedulePage = () => {
     async function handleDispprove(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/unapprove/${studentIDState}`,
+            `https://papiris-api.onrender.com/api/schedules/student/unapprove/${studentIDState}`,
             { method: 'PUT' }
         );
         const json = await response.json();

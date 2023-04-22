@@ -108,7 +108,7 @@ export default ManageJoinCode;
 export const joinCodeLoader = async () => {
     const userID = JSON.parse(localStorage.getItem('auth')).result._id;
     console.log(userID);
-    const joinCodes = await fetch(`http://localhost:42069/api/auth/joins/codes/${userID}`);
+    const joinCodes = await fetch(`https://papiris-api.onrender.com/api/auth/joins/codes/${userID}`);
 
     if (!joinCodes.ok) {
         console.log('There was an error getting the list of join codes.');

@@ -118,9 +118,9 @@ export default function ViewChecklist() {
 export const checklistLoader = async ({ params }) => {
     //Get the user's checklists and a list of all preceptors from the database
     const checklistRes = await fetch(
-        `http://localhost:42069/api/weeks/${params.checklistID}`
+        `https://papiris-api.onrender.com/api/weeks/${params.checklistID}`
     );
-    const preceptorRes = await fetch(`http://localhost:42069/api/users/preceptors`);
+    const preceptorRes = await fetch(`https://papiris-api.onrender.com/api/users/preceptors`);
 
     if (!checklistRes.ok) {
         console.log('There was an error retreiving that checklist');
@@ -142,7 +142,7 @@ export const checklistLoader = async ({ params }) => {
 export const saveChecklistAction = async ({ request, params }) => {
     //Get the submitted from data and the checklist that is being updated from the database
     const formData = await request.formData();
-    const res = await fetch(`http://localhost:42069/api/weeks/${params.checklistID}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/weeks/${params.checklistID}`);
     const loaderData = await res.json();
 
     //Get the selected preceptor's ID
@@ -175,7 +175,7 @@ export const saveChecklistAction = async ({ request, params }) => {
     });
 
     //Send the update to the database
-    await fetch(`http://localhost:42069/api/weeks/${params.checklistID}`, {
+    await fetch(`https://papiris-api.onrender.com/api/weeks/${params.checklistID}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(resData),
