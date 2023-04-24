@@ -1,6 +1,8 @@
-import { Typography, Link } from '@mui/material';
+import { Typography, Link, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const AdminHome = () => {
+    const navigate = useNavigate();
     return (
         <>
             <br />
@@ -8,10 +10,14 @@ const AdminHome = () => {
                 Admin Homepage
             </Typography>
             <br />
-            <Typography variant="h6">
-                <Link href="/admin/join-codes" underline="always">
-                    Manage Join Codes
-                </Link>
+            <Typography variant="h4">
+            <Button
+                                size="lg"
+                                variant='contained'
+                                onClick={() => navigate('/admin/join-codes')}
+                            >
+                                Manage Join Codes
+                                </Button >
             </Typography>
         </>
     );
