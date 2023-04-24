@@ -249,8 +249,19 @@ const router = createBrowserRouter(
 
             {/* START OF ADMIN ROUTES */}
             <Route path="/admin">
-                <Route path="home" element={<AdminHome />} />
-                <Route path="join-codes" element={<AdminManageJoinCode />} />
+                <Route path="home" element={
+                    <PrivateRoute roles={['administrator']}>
+                        <AdminHome />
+                    </PrivateRoute>
+                    }
+                />
+
+                <Route path="join-codes" element={
+                <PrivateRoute roles={['administrator']}>
+                    <AdminManageJoinCode />
+                </PrivateRoute> 
+            } 
+            />
             </Route>
             {/* END OF ADMIN ROUTES */}
 
