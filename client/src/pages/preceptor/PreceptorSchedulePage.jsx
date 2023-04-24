@@ -27,7 +27,7 @@ const InstructorSchedulePage = () => {
     async function handleSearch(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/${studentIDState}`
+            `https://papiris-api.onrender.com/api/schedules/student/${studentIDState}`
         );
         setWeekData(await response.json());
     }
@@ -36,7 +36,7 @@ const InstructorSchedulePage = () => {
     async function handleApprove(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/approve/${studentIDState}`,
+            `https://papiris-api.onrender.com/api/schedules/student/approve/${studentIDState}`,
             { method: 'PUT' }
         );
         const json = await response.json();
@@ -47,15 +47,15 @@ const InstructorSchedulePage = () => {
     async function handleDispprove(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/unapprove/${studentIDState}`,
+            `https://papiris-api.onrender.com/api/schedules/student/unapprove/${studentIDState}`,
             { method: 'PUT' }
         );
         const json = await response.json();
     }
 
     return (
-        <>
-            <Box sx={{ display: 'flex', justifyContent: 'center', my: 10 }}>
+        <Box sx={{ marginX: 30, padding: 1,justifyContent: 'center',  bgcolor: 'rgba(255, 255, 255, 0.4)', borderRadius: 4}}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', my: 5  }}>
                 <TextField
                     label="Student Email"
                     onChange={(e) => setStudentIDState(e.target.value)}
@@ -66,7 +66,7 @@ const InstructorSchedulePage = () => {
             </Box>
 
             {!weekData && (
-                <Typography align="center" color="red">
+                <Typography align="center" color="black">
                     Please Enter A Valid Student Email To View A Schedule...
                 </Typography>
             )}
@@ -234,7 +234,7 @@ const InstructorSchedulePage = () => {
                     </Button>
                 </DialogActions>
             </Dialog>
-        </>
+        </Box>
     );
 };
 

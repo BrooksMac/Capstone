@@ -10,6 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PreceptorChecklistCard from '../../components/preceptor/checklist/PreceptorChecklistCard';
+import bigsaitlogo from '../../img/bigsaitlogo.png';
 
 export default function PreceptorHome() {
     //for use with the accordian
@@ -40,7 +41,7 @@ export default function PreceptorHome() {
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography variant="h5" sx={{ fontWeight: 'bold' }}>Evaluations</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <Grid container spacing={1}>
                         {sortedEvals.length > 0 ? (
                             sortedEvals.map((evaluation, idx) => (
@@ -98,7 +99,7 @@ export default function PreceptorHome() {
                         Checklists
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <Grid container spacing={2}>
                         {checklists.length > 0 ? (
                             checklists.map((checklist) => (
@@ -117,7 +118,7 @@ export default function PreceptorHome() {
 
     //delete eval handler
     async function handleDeleteEval(evalId) {
-        const response = await fetch(`http://localhost:42069/api/preceptor/${evalId}`, {
+        const response = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evalId}`, {
             method: 'DELETE',
         });
 
@@ -129,9 +130,9 @@ export default function PreceptorHome() {
 export const evalsLoader = async () => {
     const user = JSON.parse(localStorage.getItem('auth')).result._id;
 
-    const evals = await fetch(`http://localhost:42069/api/preceptor/home/${user}`);
+    const evals = await fetch(`https://papiris-api.onrender.com/api/preceptor/home/${user}`);
 
-    const checks = await fetch(`http://localhost:42069/api/weeks/user/${user}`);
+    const checks = await fetch(`https://papiris-api.onrender.com/api/weeks/user/${user}`);
 
     const checklists = await checks.json();
 

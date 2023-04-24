@@ -17,6 +17,7 @@ import { Form, redirect, useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InstructorChecklistAccordion from '../../components/instructor/checklist/InstructorChecklistAccordion';
+import bigsaitlogo from '../../img/bigsaitlogo.png';
 
 export default function InstructorViewChecklist() {
     const { checklistData } = useLoaderData();
@@ -54,7 +55,7 @@ export default function InstructorViewChecklist() {
                         >
                             <Typography>{section.name}</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                             <InstructorChecklistAccordion section={section} />
                         </AccordionDetails>
                     </Accordion>
@@ -102,7 +103,7 @@ export const instructorSaveGradeAction = async ({ request, params }) => {
     const formData = await request.formData();
     const grade = { grade: formData.get('grade') };
 
-    await fetch(`http://localhost:42069/api/weeks/instructor/${params.checklistID}`, {
+    await fetch(`https://papiris-api.onrender.com/api/weeks/instructor/${params.checklistID}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(grade),

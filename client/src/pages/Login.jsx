@@ -12,6 +12,7 @@ import {
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import logo from '../img/sait-logo.png';
+import LoginInfoPopUp from '../components/LoginInfoPopUp'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -52,7 +53,7 @@ const Login = () => {
      * Clicking the button fires the onSubmit function on the form.
      */
     return (
-        <Container maxWidth="sm" sx={{ padding: '30px' }}>
+        <Container maxWidth="sm" sx={{ padding: '30px', bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
             <Stack
                 direction="row"
                 spacing={2}
@@ -101,6 +102,9 @@ const Login = () => {
                 </Stack>
                 {error && <Alert severity="error">{error}</Alert>}
             </form>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <LoginInfoPopUp setEmail={setEmail} setPassword={setPassword}/>
+            </div>
         </Container>
     );
 };

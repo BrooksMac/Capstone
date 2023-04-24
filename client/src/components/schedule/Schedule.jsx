@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogActions, DialogTitle } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogTitle, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -23,7 +23,7 @@ const Schedule = () => {
     useEffect(() => {
         async function fn() {
             const response = await fetch(
-                `http://localhost:42069/api/schedules/student/${authenticatedUsersStudentEmail}`
+                `https://papiris-api.onrender.com/api/schedules/student/${authenticatedUsersStudentEmail}`
             );
             const json = await response.json();
             setIsSubmitted(json.is_sumbitted);
@@ -37,7 +37,7 @@ const Schedule = () => {
     async function handleSubmission(e) {
         e.preventDefault();
         const response = await fetch(
-            `http://localhost:42069/api/schedules/student/submit/${authenticatedUsersStudentEmail}`,
+            `https://papiris-api.onrender.com/api/schedules/student/submit/${authenticatedUsersStudentEmail}`,
             { method: 'PUT' }
         );
         const json = await response.json();
@@ -49,7 +49,7 @@ const Schedule = () => {
     //
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 10 }}>
+            <Box sx={{ display: 'flex', marginX: 15, paddingBottom: 5, justifyContent: 'center', mt: 10, bgcolor: 'rgba(255, 255, 255, 0.8)', borderRadius: 4}}>
                 <Box>
                     {weeks &&
                         weeks.map((weekData, index) => (
@@ -61,17 +61,24 @@ const Schedule = () => {
                             />
                         ))}
                 </Box>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', my: 5, position: 'relative' }}>
                 <Button
                     variant="contained"
                     color="success"
                     onClick={handleSubmission}
                     disabled={isSubmitted}
+                    size='large'
+                    sx={{
+                        position: 'fixed',
+                        bottom: '2rem',
+                        right: '2rem',
+                      }}
                 >
                     Submit
                 </Button>
             </Box>
+            </Box>
+            
 
             <Dialog open={dialogState}>
                 <DialogTitle>Submission Successful!</DialogTitle>

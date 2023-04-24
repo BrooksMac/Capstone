@@ -19,7 +19,7 @@ export const useSignup = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('http://localhost:42069/api/auth/register', {
+        const response = await fetch('https://papiris-api.onrender.com/api/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

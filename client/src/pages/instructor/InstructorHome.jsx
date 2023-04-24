@@ -15,6 +15,7 @@ import {
 import { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import bigsaitlogo from '../../img/bigsaitlogo.png';
 
 export default function InstructorHome() {
     const userId = JSON.parse(localStorage.getItem('auth')).result._id;
@@ -44,7 +45,7 @@ export default function InstructorHome() {
                         Students
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <Grid container spacing={1}>
                         {students ? (students.map((student, idx) => (
                             <Grid item key={idx} sx={{ minWidth: 275 }}>
@@ -118,7 +119,7 @@ export default function InstructorHome() {
                         Account Management
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{backgroundImage: `url(${bigsaitlogo})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                     <br />
                     <br />
                     {/* <Typography variant="h6">
@@ -139,7 +140,7 @@ export default function InstructorHome() {
 export const instructorHomeLoader = async () => {
     const userId = JSON.parse(localStorage.getItem('auth')).result._id;
 
-    const res = await fetch(`http://localhost:42069/api/instructor/${userId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/instructor/${userId}`);
     const students = await res.json();
     console.log(students);
     return students;

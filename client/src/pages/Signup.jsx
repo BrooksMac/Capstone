@@ -34,7 +34,7 @@ const Signup = () => {
      * Clicking the button fires the onSubmit function on the form.
      */
     return (
-        <Container maxWidth="sm" sx={{ padding: '20px' }}>
+        <Container maxWidth="sm" sx={{justifyContent: 'center', mt: 3, bgcolor: 'rgba(255, 255, 255, 0.7)', borderRadius: 4}}>
             <Typography variant="h4" component="h1">
                 Competency Tracking Tool
             </Typography>

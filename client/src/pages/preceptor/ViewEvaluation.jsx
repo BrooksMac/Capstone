@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { MenuItem, Button, TextField } from '@mui/material';
+import { MenuItem, Button, TextField, Box } from '@mui/material';
 
 import { useLoaderData, useActionData, redirect, Form } from 'react-router-dom';
 
@@ -24,6 +24,7 @@ export default function PreceptorEvaluate() {
     const data = useActionData();
 
     return (
+        <Box sx={{bgcolor: 'rgba(255, 255, 255, 0.8)'}}>
         <Form method="post">
             <input hidden name="evaluationId" value={instantiatedEval._id}></input>
 
@@ -104,13 +105,14 @@ export default function PreceptorEvaluate() {
             </Button>
             </div>
         </Form>
+        </Box>
     );
 }
 
 //preliminary loader
 export const viewEvaluationLoader = async ({ params }) => {
     const evaluationId = params.evaluationID;
-    const res = await fetch(`http://localhost:42069/api/preceptor/${evaluationId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
     return res;
 };
 
@@ -123,7 +125,7 @@ export const editEvaluationAction = async ({ request }) => {
     console.log(evaluationId);
 
     //grab the master evaluation
-    const res = await fetch(`http://localhost:42069/api/preceptor/${evaluationId}`);
+    const res = await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`);
     const newEval = await res.json();
 
     newEval.comments = data.get('comments');
@@ -133,7 +135,7 @@ export const editEvaluationAction = async ({ request }) => {
         evals.skill_rating = data.get(evals.skill_name + 'rating');
     });
 
-    await fetch(`http://localhost:42069/api/preceptor/${evaluationId}`, {
+    await fetch(`https://papiris-api.onrender.com/api/preceptor/${evaluationId}`, {
         method: 'PUT',
         body: JSON.stringify(newEval),
         headers: { 'Content-Type': 'application/json' },

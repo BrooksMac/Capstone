@@ -12,7 +12,7 @@ export const useManageJoinCode = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('http://localhost:42069/api/instructor/code/student', {
+        const response = await fetch('https://papiris-api.onrender.com/api/instructor/code/student', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
@@ -36,7 +36,7 @@ export const useManageJoinCode = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('http://localhost:42069/api/instructor/code/preceptor', {
+        const response = await fetch('https://papiris-api.onrender.com/api/instructor/code/preceptor', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),
@@ -59,7 +59,7 @@ export const useManageJoinCode = () => {
         setError(null);
         setMessage(null);
 
-        const response = await fetch('http://localhost:42069/api/instructor/code/reset', {
+        const response = await fetch('https://papiris-api.onrender.com/api/instructor/code/reset', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code }),
