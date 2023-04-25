@@ -39,7 +39,7 @@ export default function LoginInfoPopUp({setEmail, setPassword}) {
             Preceptor
             <PersonIcon style={{fontSize: 40}}/>
           </IconButton>
-          <IconButton size='large' onClick={() => handleFillFields("brooks@sait.ca")} color="success">
+          <IconButton size='large' onClick={() => handleFillFields("instructor@gmail.com")} color="success">
             Instructor
             <PersonIcon style={{fontSize: 40}}/>
           </IconButton>
